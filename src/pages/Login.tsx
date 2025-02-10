@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Login = () => {
-  const { user, login } = useAuth(); // ✅ Get `user` from AuthContext
+  const { user, login } = useAuth(); //  Get `user` from AuthContext
   const navigate = useNavigate();
 
-  // ✅ Redirect if the user is already logged in
+  //  Redirect if the user is already logged in
   useEffect(() => {
     if (user) {
       navigate("/");
@@ -33,7 +33,7 @@ const Login = () => {
 
       <GoogleButton
         onClick={async () => {
-          await login(); // ✅ Call login and let useEffect handle navigation
+          await login(); //  Call login and let useEffect handle navigation
         }}
       >
         <img

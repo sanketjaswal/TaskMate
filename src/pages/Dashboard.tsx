@@ -3,30 +3,32 @@ import styled from "styled-components";
 import { useAuth } from "../context/AuthContext";
 
 import TaskList from "../components/TaskList";
+import { Header } from "../components/Header";
+import { TaskFeatures } from "../components/Features";
+import { CreateTask } from "../components/CreateTask";
 
 const Dashboard = () => {
   const { logout } = useAuth();
 
   return (
-    <div>
-      <LogoutButton onClick={logout}>Logout</LogoutButton>
+    <Box>
+      <Header logout={logout}></Header>
+      <TaskFeatures></TaskFeatures>
       <TaskList />
-    </div>
+      <CreateTask></CreateTask>
+    </Box>
   );
 };
 
 export default Dashboard;
 
 // Styled components
-const LogoutButton = styled.button`
-  background-color: #ef4444;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-size: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #dc2626;
-  }
+const Box = styled.div`
+  width: 100vw;
+  /* height: 20vh; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
